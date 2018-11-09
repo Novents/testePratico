@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TestePratico.Models.Categoria>
+
+@{
+    ViewBag.Title = "Teste Prático";
+}
+
+<div class="panel panel-primary">
+    <h2 class="panel-heading">Categorias</h2>
+
+    <p class="col-md-1">
+        @Html.ActionLink("Nova Categoria", "Create", "Create", new { @class = "btn btn-success" })
+    </p>
+    <div>
+        <table class="table table-condensed table-striped">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.no_categoria)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.no_categoria)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.categoriaID }, new { @class = "btn btn-default" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

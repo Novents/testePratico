@@ -1,0 +1,32 @@
+﻿@model TestePratico.Models.Categoria
+
+@{
+    ViewBag.Title = "Teste Prático";
+}
+<div class="panel panel-primary">
+    <h2 class="panel-heading">Detalhes Categoria</h2>
+    <p class="col-md-12">
+        @Html.ActionLink("Voltar", "Index", "Index", new { @class = "btn btn-default" })
+    </p>
+    <hr />
+    <br />
+
+    <div class="col-xs-12">
+        <div class="form-group">
+            <label class="control-label">
+                <b>@Html.DisplayNameFor(model => model.no_categoria)</b>
+            </label>
+            <br />
+            @Html.DisplayFor(model => model.no_categoria)
+        </div>
+        <br />
+        <div class="col col-md-6">
+            @Html.ActionLink("Editar", "Edit", new { id = Model.categoriaID }, new { @class = "btn btn-default" })
+        </div>
+        <div class="col">
+            @Html.ActionLink("Excluir", "Delete", new { id = Model.categoriaID }, new { @class = "btn btn-danger" })
+        </div>
+    </div>
+    <br />
+</div>
+

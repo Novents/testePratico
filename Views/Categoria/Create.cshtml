@@ -1,0 +1,38 @@
+﻿@model TestePratico.Models.Categoria
+
+@{
+    ViewBag.Title = "Teste Prático";
+}
+
+<div class="panel panel-primary">
+    <h2 class="panel-heading">Cadastro Categoria</h2>
+    <p class="col-md-12">
+        @Html.ActionLink("Voltar", "Index", "Index", new { @class = "btn btn-default" })
+    </p>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            <div class="form-group">
+                @Html.LabelFor(model => model.no_categoria, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.no_categoria, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.no_categoria, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <p class="col-md-12">
+                <input type="submit" value="Cadastrar" class="btn btn-info" />
+            </p>
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

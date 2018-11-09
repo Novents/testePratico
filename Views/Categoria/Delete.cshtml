@@ -1,0 +1,35 @@
+﻿@model TestePratico.Models.Categoria
+
+@{
+    ViewBag.Title = "Teste Prático";
+}
+
+<div class="panel panel-primary">
+    <h2 class="panel-heading">Excluir Categoria</h2>
+    <p class="col-md-12">
+        @Html.ActionLink("Voltar", "Details", new { id = Model.categoriaID }, new { @class = "btn btn-default" })
+    </p>
+    <hr />
+    <h4 class="panel-body">Você tem certeza que desejar excluir este registro?</h4>
+    <br />
+
+    <div class="col-xs-12">
+        <div class="form-group">
+            <label class="control-label">
+                <b>@Html.DisplayNameFor(model => model.no_categoria)</b>
+            </label>
+            <br />
+            @Html.DisplayFor(model => model.no_categoria)
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-xs-12">
+            <input type="submit" value="Excluir" class="btn btn-danger" />
+        </div>
+    }
+    <br />
+</div>

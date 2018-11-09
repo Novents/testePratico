@@ -1,0 +1,73 @@
+﻿@model IEnumerable<TestePratico.Models.Estabelecimento>
+
+
+@{
+    ViewBag.Title = "Teste Prático";
+}
+
+<div class="panel panel-primary">
+    <h2 class="panel-heading">Estabelecimentos</h2>
+
+    <p class="col-md-1">
+        @Html.ActionLink("Novo Estabelecimento", "Create", "Create", new { @class = "btn btn-success" })
+    </p>
+    <div>
+        <table class="table table-condensed table-striped">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.fantasia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.cidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.estado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.categoria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.data_cadastro)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fantasia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.estado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.categoria)
+                    </td>
+                    <td>
+                        @Html.ValueFor(modelItem => item.status)
+                    </td>
+                    <td>
+                        @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.data_cadastro))
+                    </td>
+                    <td>
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.estabelecimentoID }, new { @class = "btn btn-default" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
